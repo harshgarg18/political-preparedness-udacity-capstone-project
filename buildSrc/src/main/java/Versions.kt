@@ -16,6 +16,7 @@ object Versions {
     const val constraintVersion = "2.1.3"
     const val coroutinesVersion = "1.6.0"
     const val coreKtxVersion = "1.7.0"
+    const val timberVersion = "4.7.1"
     const val roomVersion = "2.4.2"
     const val retrofitVersion = "2.9.0"
     const val retrofitCoroutineAdapterVersion = "0.9.2"

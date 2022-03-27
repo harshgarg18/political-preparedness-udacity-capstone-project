@@ -36,11 +36,15 @@ object Dependencies {
     private const val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshiVersion}"
     private const val moshiAdapters = "com.squareup.moshi:moshi-adapters:${Versions.moshiVersion}"
 
+    // Logging
+    private const val timber = "com.jakewharton.timber:timber:${Versions.timberVersion}"
+
     // Glide
     //TODO: Add Glide Implementation
 
     //Room
     private const val room = "androidx.room:room-runtime:${Versions.roomVersion}"
+    private const val roomKtx = "androidx.room:room-ktx:${Versions.roomVersion}"
     private const val roomCompiler = "androidx.room:room-compiler:${Versions.roomVersion}"
 
     // Location
@@ -68,7 +72,9 @@ object Dependencies {
         add(moshi)
         add(moshiKotlin)
         add(moshiAdapters)
+        add(timber)
         add(room)
+        add(roomKtx)
         add(playServicesLocation)
     }
 

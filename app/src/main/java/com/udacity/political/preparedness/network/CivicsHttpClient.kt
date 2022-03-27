@@ -1,21 +1,22 @@
 package com.udacity.political.preparedness.network
 
+import com.udacity.political.preparedness.BuildConfig
 import okhttp3.OkHttpClient
 
 class CivicsHttpClient : OkHttpClient() {
 
     companion object {
-        private const val API_KEY = "" //TODO: Place your API Key Here
-
         fun getClient(): OkHttpClient {
             return Builder()
                 .addInterceptor { chain ->
                     val original = chain.request()
+
                     val url = original
                         .url()
                         .newBuilder()
-                        .addQueryParameter("key", API_KEY)
+                        .addQueryParameter("key", BuildConfig.API_KEY)
                         .build()
+
                     val request = original
                         .newBuilder()
                         .url(url)

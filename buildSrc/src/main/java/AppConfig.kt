@@ -11,4 +11,6 @@ object AppConfig {
     const val cleanTask = "clean"
 
     const val buildTypeRelease = "release"
+
+    const val CIVIC_API_KEY = "\"<API_KEY>\""
 }

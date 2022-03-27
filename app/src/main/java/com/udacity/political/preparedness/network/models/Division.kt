@@ -8,4 +8,6 @@ data class Division(
     val id: String,
     val country: String,
     val state: String
-) : Parcelable
+) : Parcelable {
+    fun format(): String = listOf(state, country).filter { it.isNotEmpty() }.joinToString()
+}

@@ -12,6 +12,7 @@ android {
         targetSdk = AppConfig.targetSdkVersion
         versionCode = AppConfig.versionCode
         versionName = AppConfig.versionName
+        buildConfigField("String", "API_KEY", AppConfig.CIVIC_API_KEY)
     }
     buildFeatures {
         dataBinding = true

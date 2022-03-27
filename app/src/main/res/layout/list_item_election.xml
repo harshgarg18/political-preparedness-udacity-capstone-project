@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.udacity.political.preparedness.util.DateFormatter" />
+
+        <variable
+            name="election"
+            type="com.udacity.political.preparedness.network.models.Election" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/card_margin"
+        android:background="@color/colorCard"
+        android:clipToPadding="true"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardElevation="@dimen/card_elevation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorCard"
+            android:paddingHorizontal="@dimen/card_padding_horizontal"
+            android:paddingVertical="@dimen/card_padding_vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/election_name"
+                style="@style/TextAppearance.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{election.name}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/election_placeholder" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/election_date"
+                style="@style/TextAppearance.Description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{DateFormatter.formatDate(election.electionDay)}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/election_name"
+                tools:text="@string/date_placeholder" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

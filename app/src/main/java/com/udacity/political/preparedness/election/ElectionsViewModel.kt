@@ -1,25 +1,61 @@
 package com.udacity.political.preparedness.election
 
 import android.app.Application
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import android.widget.Toast
+import androidx.lifecycle.*
+import com.udacity.political.preparedness.R
+import com.udacity.political.preparedness.database.ElectionDatabase
+import com.udacity.political.preparedness.network.models.Election
+import com.udacity.political.preparedness.repository.ElectionRepository
+import com.udacity.political.preparedness.util.NetworkStatus
+import kotlinx.coroutines.launch
+import timber.log.Timber
 
-//TODO: Construct ViewModel and provide election datasource
-class ElectionsViewModel(app: Application) : ViewModel() {
 
-    //TODO: Create live data val for upcoming elections
+class ElectionsViewModel(app: Application) : AndroidViewModel(app) {
 
-    //TODO: Create live data val for saved elections
+    private val database = ElectionDatabase.getInstance(app)
+    private val electionRepository = ElectionRepository(database.electionDao)
 
-    //TODO: Create val and functions to populate live data for upcoming elections from the API and saved elections from local database
+    val electionApiStatus = electionRepository.apiStatus
 
-    //TODO: Create functions to navigate to saved or upcoming election voter info
+    val elections
+        get() = electionRepository.getAllElections()
+    val followedElections
+        get() = electionRepository.getAllFollowedElections()
+
+    private val _navigateToSelectedElection = MutableLiveData<Election?>()
+    val navigateToSelectedElection: LiveData<Election?>
+        get() = _navigateToSelectedElection
+
+
+    init {
+        viewModelScope.launch {
+            try {
+                electionRepository.refreshElections()
+            } catch (e: Exception) {
+                Toast.makeText(
+                    app,
+                    app.applicationContext.getString(R.string.elections_network_error_toast),
+                    Toast.LENGTH_SHORT
+                ).show()
+                Timber.e(e)
+                electionApiStatus.value = NetworkStatus.DONE
+            }
+        }
+    }
+
+    fun displayElectionDetails(election: Election) {
+        _navigateToSelectedElection.value = election
+    }
+
+    fun displayElectionDetailsCompleted() {
+        _navigateToSelectedElection.value = null
+    }
 
     @Suppress("UNCHECKED_CAST")
-    class Factory(private val app: Application) :
-        ViewModelProvider.NewInstanceFactory() {
-        override fun <T : ViewModel> create(modelClass: Class<T>) =
-            (ElectionsViewModel(app) as T)
+    class Factory(private val app: Application) : ViewModelProvider.Factory {
+        override fun <T : ViewModel> create(modelClass: Class<T>) = (ElectionsViewModel(app) as T)
     }
 
 }

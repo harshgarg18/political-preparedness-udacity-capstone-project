@@ -9,9 +9,9 @@ data class Address(
 ) {
     fun toFormattedString(): String {
         val output = StringBuilder()
-        output.append(line1).append("\n")
+        output.append("$line1\n")
         if (!line2.isNullOrEmpty()) {
-            output.append(line2).append("\n")
+            output.append("$line2\n")
         }
         output.append("$city, $state $zip")
         return output.toString()

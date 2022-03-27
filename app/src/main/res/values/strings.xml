@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Political Preparedness</string>
-
-    <!-- TODO: Add necessary string values -->
-
+    <string name="upcoming_elections">Upcoming Elections</string>
+    <string name="find_my_representative">Find My Representative</string>
+    <string name="elections_network_error_toast">Error fetching latest elections data</string>
+    <string name="election_placeholder">Test Election</string>
+    <string name="date_placeholder">Friday, Jun 06, 2025</string>
+    <string name="saved_elections">Saved Elections</string>
+    <string name="elections">Elections</string>
+    <string name="voter_info_network_error_toast">Error fetching Voters Information</string>
+    <string name="follow_election">Follow Election</string>
+    <string name="unfollow_election">Unfollow Election</string>
+    <string name="election_information">Election Information</string>
+    <string name="voting_information">Voting Information</string>
+    <string name="ballot_information">Ballot Information</string>
+    <string name="mailing_address">Mailing Address</string>
+    <string name="address">Address</string>
 </resources>
