@@ -49,6 +49,9 @@ object Dependencies {
     private const val roomKtx = "androidx.room:room-ktx:${Versions.roomVersion}"
     private const val roomCompiler = "androidx.room:room-compiler:${Versions.roomVersion}"
 
+    // Work
+    private const val work = "androidx.work:work-runtime-ktx:${Versions.workVersion}"
+
     // Location
     private const val playServicesLocation = "com.google.android.gms:play-services-location:${Versions.playServicesLocationVersion}"
 
@@ -80,6 +83,7 @@ object Dependencies {
         add(timber)
         add(room)
         add(roomKtx)
+        add(work)
         add(playServicesLocation)
     }
 
