@@ -1,6 +1,7 @@
 package com.udacity.political.preparedness.representative
 
 import android.app.Application
+import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.*
 import com.udacity.political.preparedness.R
@@ -13,6 +14,11 @@ import retrofit2.HttpException
 import timber.log.Timber
 
 class RepresentativeViewModel(private val app: Application) : AndroidViewModel(app) {
+
+    companion object {
+        private const val STATE_POSITION_KEY = "selectedStatePosition"
+        private const val REPRESENTATIVES_KEY = "representativesList"
+    }
 
     private val stateList = app.resources.getStringArray(R.array.states)
 
@@ -30,11 +36,34 @@ class RepresentativeViewModel(private val app: Application) : AndroidViewModel(a
         !it.isNullOrEmpty()
     }
 
-    val representativesApiStatus = MutableLiveData(NetworkStatus.DONE)
+    val representativesApiStatus = MutableLiveData<NetworkStatus>()
 
     init {
         _address.value = Address.empty()
         selectedStatePosition.value = 0
+        representativesApiStatus.value = NetworkStatus.DONE
+    }
+
+    fun saveDataToState(outState: Bundle): Bundle {
+        selectedStatePosition.value?.let {
+            outState.putInt(STATE_POSITION_KEY, it)
+        }
+        representatives.value?.let {
+            outState.putParcelableArrayList(REPRESENTATIVES_KEY, arrayListOf(*it.toTypedArray()))
+        }
+        return outState
+    }
+
+    fun retrieveDataFromSavedState(savedInstanceState: Bundle?) {
+        val position = savedInstanceState?.getInt(STATE_POSITION_KEY)
+        position?.let {
+            selectedStatePosition.value = it
+        }
+        val representativeList: ArrayList<Representative>? =
+            savedInstanceState?.getParcelableArrayList(REPRESENTATIVES_KEY)
+        representativeList?.let {
+            _representatives.value = listOf(*it.toTypedArray())
+        }
     }
 
     fun setState(position: Int) {

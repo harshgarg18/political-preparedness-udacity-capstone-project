@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/representativeFragment"
-        android:name="com.udacity.political.preparedness.representative.DetailFragment"
+        android:name="com.udacity.political.preparedness.representative.RepresentativeFragment"
         android:label="@string/find_my_representative"
         tools:layout="@layout/fragment_representative" />
 

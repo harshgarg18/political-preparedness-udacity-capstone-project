@@ -32,7 +32,7 @@ import com.udacity.political.preparedness.representative.adapter.RepresentativeL
 import timber.log.Timber
 import java.util.*
 
-class DetailFragment : Fragment() {
+class RepresentativeFragment : Fragment() {
 
     companion object {
         private val locationPermissions = arrayOf(
@@ -60,6 +60,8 @@ class DetailFragment : Fragment() {
         binding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_representative, container, false
         )
+        binding.executePendingBindings()
+        viewModel.retrieveDataFromSavedState(savedInstanceState)
 
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
@@ -85,6 +87,10 @@ class DetailFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(viewModel.saveDataToState(outState))
     }
 
     private fun getLocationAndFindRepresentatives() {
