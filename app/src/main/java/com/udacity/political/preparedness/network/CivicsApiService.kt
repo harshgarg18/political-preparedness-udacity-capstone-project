@@ -6,6 +6,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.udacity.political.preparedness.network.jsonadapter.DateAdapter
 import com.udacity.political.preparedness.network.jsonadapter.ElectionAdapter
 import com.udacity.political.preparedness.network.models.ElectionResponse
+import com.udacity.political.preparedness.network.models.RepresentativeResponse
 import com.udacity.political.preparedness.network.models.VoterInfoResponse
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -15,7 +16,6 @@ import retrofit2.http.Query
 
 private const val BASE_URL = "https://www.googleapis.com/civicinfo/v2/"
 
-// TODO: Add adapters for Java Date and custom adapter ElectionAdapter (included in project)
 private val moshi = Moshi.Builder()
     .add(ElectionAdapter())
     .add(DateAdapter())
@@ -43,7 +43,10 @@ interface CivicsApiService {
         @Query("electionId") electionId: Int
     ): Response<VoterInfoResponse>
 
-    //TODO: Add representatives API Call
+    @GET("representatives")
+    suspend fun getRepresentatives(
+        @Query("address") address: String
+    ): Response<RepresentativeResponse>
 }
 
 object CivicsApi {

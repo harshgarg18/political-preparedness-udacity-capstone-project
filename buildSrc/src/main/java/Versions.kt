@@ -20,6 +20,7 @@ object Versions {
     const val roomVersion = "2.4.2"
     const val retrofitVersion = "2.9.0"
     const val retrofitCoroutineAdapterVersion = "0.9.2"
+    const val glideVersion = "4.13.0"
     const val moshiVersion = "1.13.0"
     const val playServicesLocationVersion = "19.0.1"
 }

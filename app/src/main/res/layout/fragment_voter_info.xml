@@ -46,15 +46,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:constraint_referenced_ids="state_header,state_locations,state_ballot"
-            app:isVisible="@{viewModel.hasElectionInfo}" />
+            app:visibleIf="@{viewModel.hasElectionInfo}" />
 
         <TextView
             android:id="@+id/state_header"
             style="@style/TextAppearance.Header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="@dimen/spacing_regular"
+            android:layout_marginTop="@dimen/spacing_medium"
             android:text="@string/election_information"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/date_layout" />
@@ -64,7 +64,7 @@
             style="@style/TextAppearance.Link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/spacing_small"
             android:onClick="@{() -> viewModel.onVotingLocationClicked()}"
             android:text="@string/voting_information"
             app:layout_constraintStart_toStartOf="@id/state_header"
@@ -75,7 +75,7 @@
             style="@style/TextAppearance.Link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/spacing_very_small"
             android:onClick="@{() -> viewModel.onBallotInformationClicked()}"
             android:text="@string/ballot_information"
             app:layout_constraintStart_toStartOf="@id/state_header"
@@ -86,14 +86,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:constraint_referenced_ids="state_correspondence_header,address"
-            app:isVisible="@{viewModel.hasMailingAddress}" />
+            app:visibleIf="@{viewModel.hasMailingAddress}" />
 
         <TextView
             android:id="@+id/state_correspondence_header"
             style="@style/TextAppearance.Header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/spacing_medium"
             android:text="@string/mailing_address"
             app:layout_constraintStart_toStartOf="@id/state_header"
             app:layout_constraintTop_toBottomOf="@id/state_ballot" />
@@ -103,9 +103,9 @@
             style="@style/TextAppearance.Description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/spacing_small"
             android:text="@{viewModel.mailingAddress}"
-            android:textSize="14sp"
+            android:textSize="@dimen/text_size_extra"
             app:layout_constraintStart_toStartOf="@id/state_header"
             app:layout_constraintTop_toBottomOf="@id/state_correspondence_header"
             tools:text="@string/address" />
@@ -114,8 +114,8 @@
             android:id="@+id/follow_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/button_margin_horizontal"
-            android:layout_marginBottom="16dp"
+            android:layout_marginHorizontal="@dimen/spacing_medium"
+            android:layout_marginBottom="@dimen/spacing_regular"
             android:onClick="@{() -> viewModel.onElectionFollowingChanged()}"
             android:text="@{viewModel.buttonText}"
             app:layout_constraintBottom_toBottomOf="parent"

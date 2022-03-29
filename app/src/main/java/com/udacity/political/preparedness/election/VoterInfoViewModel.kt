@@ -31,8 +31,8 @@ class VoterInfoViewModel(private val app: Application, private val election: Ele
     private val voterInfo = MutableLiveData<State>()
     val voterInfoApiStatus = MutableLiveData(NetworkStatus.DONE)
 
-    private val votingLocationFinderUrl: LiveData<String> = Transformations.switchMap(voterInfo) {
-        MutableLiveData(it?.electionAdministrationBody?.votingLocationFinderUrl)
+    private val votingLocationFinderUrl: LiveData<String> = Transformations.map(voterInfo) {
+        it?.electionAdministrationBody?.votingLocationFinderUrl
     }
 
     private val balletInfoUrl: LiveData<String> = Transformations.map(voterInfo) {

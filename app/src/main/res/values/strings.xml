@@ -9,6 +9,7 @@
     <string name="saved_elections">Saved Elections</string>
     <string name="elections">Elections</string>
     <string name="voter_info_network_error_toast">Error fetching Voters Information</string>
+    <string name="representatives_network_error_toast">Error fetching representatives</string>
     <string name="follow_election">Follow Election</string>
     <string name="unfollow_election">Unfollow Election</string>
     <string name="election_information">Election Information</string>
@@ -16,4 +17,22 @@
     <string name="ballot_information">Ballot Information</string>
     <string name="mailing_address">Mailing Address</string>
     <string name="address">Address</string>
+    <string name="use_my_location">Use My Location</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="twitter_url">Twitter URL</string>
+    <string name="facebook_url">Facebook URL</string>
+    <string name="web_url">Web URL</string>
+    <string name="representative_title_placeholder">U.S. Senator</string>
+    <string name="representative_name_placeholder">Kamala D. Harris</string>
+    <string name="representative_party_placeholder">Democratic Party</string>
+    <string name="representative_search">Representative Search</string>
+    <string name="location_permission">Location Permission Required</string>
+    <string name="location_permission_explanation">Location Permission is required to find Representatives in your neighbourhood</string>
+    <string name="location_required_error">Location Services must be enabled to use this feature</string>
+    <string name="address_line_1">Address Line 1</string>
+    <string name="address_line_2">Address Line 2</string>
+    <string name="city">City</string>
+    <string name="zip_code">Zip Code</string>
+    <string name="state">State</string>
+    <string name="my_representatives">My Representatives</string>
 </resources>

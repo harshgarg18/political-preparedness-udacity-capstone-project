@@ -10,9 +10,11 @@ object Dependencies {
     private const val coroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
 //    private const val kotlinSerialization = "org.jetbrains.kotlinx:kotlinx-serialization-runtime:1.0-M1-1.4.0-rc"
 
-    // Constraint Layout and RecyclerView
+    // UI
     private const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintVersion}"
     private const val recyclerView =  "androidx.recyclerview:recyclerview:${Versions.recyclerViewVersion}"
+    private const val cardView =  "androidx.cardview:cardview:${Versions.cardVersion}"
+    private const val material =  "com.google.android.material:material:${Versions.materialVersion}"
 
     // ViewModel and LiveData
     private const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.archLifecycleVersion}"
@@ -40,7 +42,7 @@ object Dependencies {
     private const val timber = "com.jakewharton.timber:timber:${Versions.timberVersion}"
 
     // Glide
-    //TODO: Add Glide Implementation
+    private const val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
 
     //Room
     private const val room = "androidx.room:room-runtime:${Versions.roomVersion}"
@@ -60,6 +62,8 @@ object Dependencies {
         add(coroutineAndroid)
         add(constraintLayout)
         add(recyclerView)
+        add(material)
+        add(cardView)
         add(lifecycleExtensions)
         add(lifecycleViewModel)
         add(lifecycleLiveData)
@@ -69,6 +73,7 @@ object Dependencies {
         add(retrofit)
         add(retrofitMoshiConverter)
         add(retrofitCoroutineAdapter)
+        add(glide)
         add(moshi)
         add(moshiKotlin)
         add(moshiAdapters)

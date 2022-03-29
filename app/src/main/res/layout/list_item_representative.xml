@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="representative"
+            type="com.udacity.political.preparedness.representative.model.Representative" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/card_margin"
+        android:clipToPadding="true"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardElevation="@dimen/card_elevation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorCard"
+            android:paddingHorizontal="@dimen/card_padding_horizontal"
+            android:paddingVertical="@dimen/card_padding_vertical">
+
+            <ImageView
+                android:id="@+id/representative_photo"
+                android:layout_width="@dimen/profile_picture_size"
+                android:layout_height="@dimen/profile_picture_size"
+                android:contentDescription="@string/profile_picture"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:profileImage="@{representative.official.photoUrl}"
+                tools:src="@drawable/ic_profile" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/title"
+                style="@style/TextAppearance.Title2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_regular"
+                android:text="@{representative.office.name}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/representative_photo"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/representative_title_placeholder" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/name"
+                style="@style/TextAppearance.Description2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_minimum"
+                android:text="@{representative.official.name}"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                tools:text="@string/representative_name_placeholder" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/party"
+                style="@style/TextAppearance.Description2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_minimum"
+                android:text="@{representative.official.party}"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@id/name"
+                tools:text="@string/representative_party_placeholder" />
+
+            <ImageView
+                android:id="@+id/twitter_icon"
+                android:layout_width="@dimen/link_size"
+                android:layout_height="@dimen/link_size"
+                android:contentDescription="@string/twitter_url"
+                android:src="@drawable/ic_twitter"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_bias="1"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/facebook_icon"
+                android:layout_width="@dimen/link_size"
+                android:layout_height="@dimen/link_size"
+                android:layout_marginEnd="@dimen/spacing_very_small"
+                android:contentDescription="@string/facebook_url"
+                android:src="@drawable/ic_facebook"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/twitter_icon"
+                app:layout_constraintTop_toTopOf="@id/twitter_icon"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/www_icon"
+                android:layout_width="@dimen/link_size"
+                android:layout_height="@dimen/link_size"
+                android:layout_marginEnd="@dimen/spacing_very_small"
+                android:contentDescription="@string/web_url"
+                android:src="@drawable/ic_www"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/facebook_icon"
+                app:layout_constraintTop_toTopOf="@id/twitter_icon"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -6,6 +6,7 @@
     <color name="colorPrimaryLight">#45607A</color>
     <color name="white">#FFFFFF</color>
     <color name="gray50">#7F7F7F</color>
-    <color name="colorCard">#C2F6EC</color>
+    <color name="colorCard">#E3F2FD</color>
     <color name="colorTitle">#D0D5D9</color>
+    <color name="hintColor">#546E7A</color>
 </resources>

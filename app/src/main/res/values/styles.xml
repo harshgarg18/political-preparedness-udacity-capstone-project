@@ -11,7 +11,6 @@
         <item name="colorControlNormal">@color/white</item>
     </style>
 
-    <!-- TODO: Add necessary styles -->
     <style name="AppBarLayoutTheme" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
 
     <style name="TitleStyle" parent="TextAppearance.AppCompat.Title">
@@ -27,14 +26,21 @@
         <item name="fontFamily">@font/space_mono_bold</item>
         <item name="android:textAlignment">gravity</item>
         <item name="android:textDirection">locale</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">@dimen/text_size_header</item>
     </style>
 
     <style name="TextAppearance.Title" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="fontFamily">@font/space_mono_bold</item>
         <item name="android:textAlignment">gravity</item>
         <item name="android:textDirection">locale</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">@dimen/text_size_title</item>
+    </style>
+
+    <style name="TextAppearance.Title2" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/space_mono_bold</item>
+        <item name="android:textAlignment">gravity</item>
+        <item name="android:textDirection">locale</item>
+        <item name="android:textSize">@dimen/text_size_title2</item>
     </style>
 
     <style name="TextAppearance.Description" parent="TextAppearance.MaterialComponents.Subtitle1">
@@ -42,16 +48,34 @@
         <item name="fontFamily">@font/space_mono</item>
         <item name="android:textAlignment">gravity</item>
         <item name="android:textDirection">locale</item>
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">@dimen/text_size_desc</item>
+    </style>
+
+    <style name="TextAppearance.Description2" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textColor">@color/gray50</item>
+        <item name="fontFamily">@font/space_mono</item>
+        <item name="android:textAlignment">gravity</item>
+        <item name="android:textDirection">locale</item>
+        <item name="android:textSize">@dimen/text_size_desc2</item>
     </style>
 
     <style name="TextAppearance.Link" parent="TextAppearance.MaterialComponents.Subtitle1">
         <item name="android:textColor">@color/colorPrimaryLight</item>
         <item name="android:textAlignment">gravity</item>
         <item name="android:textDirection">locale</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">@dimen/text_size_extra</item>
         <item name="drawableStartCompat">@drawable/ic_external_link</item>
         <item name="android:drawablePadding">@dimen/card_padding_horizontal</item>
+    </style>
+
+    <style name="TextAppearance.EditText" parent="TextAppearance.Title2">
+        <item name="fontFamily">@font/space_mono</item>
+        <item name="android:backgroundTint">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="TextAppearance.Spinner" parent="Widget.AppCompat.Spinner.Underlined">
+        <item name="fontFamily">@font/space_mono</item>
+        <item name="android:backgroundTint">@color/colorPrimaryDark</item>
     </style>
 
 </resources>

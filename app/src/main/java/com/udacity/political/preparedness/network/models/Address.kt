@@ -1,11 +1,11 @@
 package com.udacity.political.preparedness.network.models
 
 data class Address(
-    val line1: String,
-    val line2: String? = null,
-    val city: String,
-    val state: String,
-    val zip: String
+    var line1: String,
+    var line2: String? = null,
+    var city: String,
+    var state: String,
+    var zip: String
 ) {
     fun toFormattedString(): String {
         val output = StringBuilder()
@@ -15,5 +15,9 @@ data class Address(
         }
         output.append("$city, $state $zip")
         return output.toString()
+    }
+
+    companion object {
+        fun empty(): Address = Address("", "", "", "", "")
     }
 }
